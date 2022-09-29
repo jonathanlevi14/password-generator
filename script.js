@@ -56,7 +56,8 @@ function generatePassword() {
   }
   var organizedArray = randomArray.join("");
   console.log(organizedArray)
-  return organizedArray;
+  // return organizedArray;
+  alert("Your Password is " + organizedArray)
 }
 
 
