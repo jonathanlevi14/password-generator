@@ -13,15 +13,12 @@ var organizedArray = ""
 function generatePassword() {
   alert("Choose 'OK' for Yes and 'Cancel' for No. ");
 //choosing length of password
-  var howLong = prompt(
-    "Choose a length for your Password and type it here: At Least 8 characters, no more than 128."
-  );
-  if (howLong < 8 || howLong > 129) {
-    prompt(
-      "Choose a length for your Password and type it here: At Least 8 characters, no more than 128."
-    );
-    generatePassword();
-  }
+  var howLong = prompt("Choose a length for your Password and type it here: At Least 8 characters, no more than 128.");
+  if (howLong < 8 || howLong > 128) {
+    prompt("Choose a length for your Password and type it here: At Least 8 characters, no more than 128.");
+  } 
+  //NEED TO RETURN TO THE TOP
+
 //selecting upperCase letters
   var bigLetter = confirm("Do you want Upper Case letters in your password?");
   if (bigLetter === true) {
@@ -51,7 +48,7 @@ function generatePassword() {
   //an array of random numbers that is the length chosen 
   var randomArray = [];
   for (var i = 0; i <= howLong-1 ; i++) {
-    var randomNumbers = passwordArray[Math.floor(Math.random() * i)];
+    var randomNumbers = passwordArray[Math.floor(Math.random() *passwordArray.length)];
     randomArray.push(randomNumbers);
   }
   
@@ -70,4 +67,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", generatePassword);
+generateBtn.addEventListener("click", writePassword);
