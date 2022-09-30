@@ -14,11 +14,12 @@ function generatePassword() {
   alert("Choose 'OK' for Yes and 'Cancel' for No. ");
 //choosing length of password
   var howLong = Number(prompt("Choose a length for your Password and type it here: At Least 8 characters, no more than 128."));
-  console.log(howLong)
+ //ensure its a number within range
   if (howLong < 8 || howLong > 128) {
     alert("Choose a length for your Password and type it here: At Least 8 characters, no more than 128.");
     generatePassword()
   } 
+  //make sure its a number
   if (!howLong) {
     alert("Please enter a valid number 0-9");
     generatePassword()
@@ -54,9 +55,9 @@ function generatePassword() {
     var randomNumbers = passwordArray[Math.floor(Math.random() *passwordArray.length)];
     randomArray.push(randomNumbers);
   }
-  
+  //take out the commas of the string
   organizedArray = randomArray.join("");
- 
+ //return the password
   return organizedArray;
 }
 
