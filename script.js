@@ -5,7 +5,7 @@ var upperCaseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N",
 var lowerCaseLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 var numbers = ["1","2","3","4","5","6","7","8","9","0",]
 var specialChar =["!","@","#","$","%","&"]
-
+//open Arrays
 var passwordArray = []
 var organizedArray = ""
 
@@ -13,12 +13,16 @@ var organizedArray = ""
 function generatePassword() {
   alert("Choose 'OK' for Yes and 'Cancel' for No. ");
 //choosing length of password
-  var howLong = prompt("Choose a length for your Password and type it here: At Least 8 characters, no more than 128.");
+  var howLong = Number(prompt("Choose a length for your Password and type it here: At Least 8 characters, no more than 128."));
+  console.log(howLong)
   if (howLong < 8 || howLong > 128) {
-    prompt("Choose a length for your Password and type it here: At Least 8 characters, no more than 128.");
+    alert("Choose a length for your Password and type it here: At Least 8 characters, no more than 128.");
+    generatePassword()
   } 
-  //NEED TO RETURN TO THE TOP
-
+  if (!howLong) {
+    alert("Please enter a valid number 0-9");
+    generatePassword()
+  } 
 //selecting upperCase letters
   var bigLetter = confirm("Do you want Upper Case letters in your password?");
   if (bigLetter === true) {
@@ -39,7 +43,6 @@ function generatePassword() {
   if (special === true) {
     passwordArray = specialChar.concat(passwordArray);
   }
-
   //Edge Case that they dont pick an option
   if (bigLetter===false && smallLetter===false && numeric===false && special===false){
     alert("Plase Choose 'Yes' to at least one option. PLEASE START OVER")
@@ -54,8 +57,7 @@ function generatePassword() {
   
   organizedArray = randomArray.join("");
  
- return organizedArray;
-  // alert("Your Password is: " + organizedArray)
+  return organizedArray;
 }
 
 // Write password to the #password input
